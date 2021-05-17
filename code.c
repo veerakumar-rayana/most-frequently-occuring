@@ -116,18 +116,13 @@ void insertUtil ( TrieNode** root, MinHeap* minHeap,
 	{
 		if ( (*root)->isEnd )
 			++( (*root)->frequency );
-		else
-		{
+		else{
 			(*root)->isEnd = 1;
-			(*root)->frequency = 1;
-		}
-		insertInMinHeap( minHeap, root, dupWord );
-	}
+			(*root)->frequency = 1;}
+		insertInMinHeap( minHeap, root, dupWord );}
 }
 void insertTrieAndHeap(const char *word, TrieNode** root, MinHeap* minHeap)
-{
-	insertUtil( root, minHeap, word, word );
-}
+{insertUtil( root, minHeap, word, word );}
 void displayMinHeap( MinHeap* minHeap )
 {
 	int i;
@@ -140,11 +135,8 @@ void displayMinHeap( MinHeap* minHeap )
 void printKMostFreq( FILE* fp, int k )
 {
 	MinHeap* minHeap = createMinHeap( k );
-	
 	TrieNode* root = NULL;
-
 	char buffer[MAX_WORD_SIZE];
-
 	while( fscanf( fp, "%s", buffer ) != EOF )
 		insertTrieAndHeap(buffer, &root, minHeap);
 	displayMinHeap( minHeap );
@@ -152,7 +144,6 @@ void printKMostFreq( FILE* fp, int k )
 int main()
 {
 	int k = 5;
-	
 	FILE *fp = fopen ("file.txt", "r");
 	if (fp == NULL)
 		printf ("File doesn't exist ");
